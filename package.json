@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "debug": "npx @modelcontextprotocol/inspector node index.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.8.0",
