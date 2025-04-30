@@ -5,11 +5,13 @@ import { execSync } from "child_process";
 
 const server = new McpServer({
   name: "npm JavaScript package management tools",
-  version: "1.0.0"
+  version: "1.0.0",
+  description: "Provides tools to get information about open source npm packages from the npmjs registry"
 });
 
 server.tool(
   "getNpmPackageInfo",
+  "Get information about an npm package",
   {
     packageName: z.string()
   },
