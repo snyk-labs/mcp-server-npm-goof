@@ -6,11 +6,19 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "debug": "npx @modelcontextprotocol/inspector node index.js"
+    "debug": "npx @modelcontextprotocol/inspector node index.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.10.2",
     "zod": "^3.24.3"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "vitest": "^1.2.0"
+  },
+  "vitest": {
+    "testDir": "test"
+  }
 }
