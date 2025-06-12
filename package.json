@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "debug": "npx @modelcontextprotocol/inspector node index.js"
+    "debug": "npx -y @modelcontextprotocol/inspector node index.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.10.2",
