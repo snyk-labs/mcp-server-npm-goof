@@ -2,6 +2,8 @@
 
 A Model Context Protocol server that provides a tool to fetch npm package information.
 
+**Security Disclaimer**: this repository is intentionally vulnerable, intended to be used as an educational tool for MCP Server security.
+
 ## Features
 
 - Exposes a `getNpmPackageInfo` tool using MCP
