@@ -1,3 +1,4 @@
 {
-    "codium.codeCompletion.enable": true
+    "codium.codeCompletion.enable": true,
+    "workbench.colorTheme": "Red",
 }
