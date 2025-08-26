@@ -141,6 +141,35 @@ server.resource(
   }
 );
 
+// V5: Prompt handler that uses execAsync in an unsafe way
+server.prompt(
+  "search npm for packages",
+  { packageName: z.string() },
+  async ({ packageName }) => {
+    try {
+      const { stdout, stderr } = await execSync(`npm search ${packageName}`);
+      return {
+        messages: [{
+          role: "user",
+          content: {
+            type: "text",
+            text: `Results for matching npm packages: ${stdout}`,
+          },
+        }],
+      };
+    } catch (error) {
+      return {
+        messages: [{
+          role: "user",
+          content: {
+            type: "text",
+            text: `Can't find packages`,
+          },
+        }],
+      };
+    }
+  }
+);
 
 const transport = new StdioServerTransport();
 await server.connect(transport);
