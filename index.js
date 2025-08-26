@@ -100,7 +100,7 @@ server.tool(
   {
     filePath: z.string()
   },
-  async ({ filePath }) => {    
+  async ({ filePath }) => {
     const output = execSync(`cat ${filePath}`, {
       encoding: "utf-8",
     });
@@ -126,28 +126,28 @@ server.resource(
 
     const decodedName = decodeURIComponent(name);
     let filePath = path.resolve(process.cwd(), '.github/workflows/', `${decodedName}.yaml`);
-    // check if filepath exists
-    if (!accessSync(filePath)) {
-      // then try without the .yaml suffix incase the user provided the full filename
-      filePath = path.resolve(process.cwd(), '.github/workflows/', decodedName);
-    }
 
-    if (accessSync(filePath)) {
-      let fileContents = '';
+    // check if filepath exists
+    try {
+      fileContents = readFileSync(filePath, 'utf-8');
+    } catch (e) {
+
       try {
+        filePath = path.resolve(process.cwd(), '.github/workflows/', decodedName);
         fileContents = readFileSync(filePath, 'utf-8');
       } catch (e) {
         writeFileSync('/tmp/mcp_log.log', `ERROR READING FILE: ${e}\n`, { flag: 'a' });
+        return {
+          contents: [{
+            uri: uri.href,
+            text: fileContents
+          }]
+        };
       }
 
-      return {
-        contents: [{
-          uri: uri.href,
-          text: fileContents
-        }]
-      };
     }
   }
+
 );
 
 
