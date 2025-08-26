@@ -117,16 +117,14 @@ server.resource(
   "pipeline-workflows",
   new ResourceTemplate("pipeline-workflows://{name}", { list: undefined }),
   async (uri, { name }) => {
-
-
     const decodedName = decodeURIComponent(name);
     let filePath = path.resolve(process.cwd(), '.github/workflows/', `${decodedName}.yaml`);
 
-    // check if filepath exists
     try {
+      // check if we find this file with .yaml suffix
       fileContents = readFileSync(filePath, 'utf-8');
     } catch (e) {
-
+      // it's possible the user provided the full filename including suffix so we try again without adding .yaml
       try {
         filePath = path.resolve(process.cwd(), '.github/workflows/', decodedName);
         fileContents = readFileSync(filePath, 'utf-8');
@@ -139,10 +137,8 @@ server.resource(
           }]
         };
       }
-
     }
   }
-
 );
 
 
