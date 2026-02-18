@@ -13,5 +13,5 @@
 3. What did the Gemini coding agent do? did it trigger the MCP Server tool? did it also read sensitive files on disk? did it send them to a remote URL...?
 4. Why did Gemini CLI do that? ("it just followed instructions"...? exactly)
 5. Now ponder and suggest
-   - What's a real world scenario of this kind of indirect prompt injection happening?
+   - What's a real world scenario of this kind of indirect prompt injection happening? (e.g... attackers can embed this as part of the description or README of an actual real legitimate package on the npmjs registry...?)
    - How would you mitigate this?
