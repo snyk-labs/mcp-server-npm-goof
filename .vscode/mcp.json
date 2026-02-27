@@ -1,0 +1,9 @@
+{
+    "servers": {
+        "npm-and-node-tools": {
+            "type": "http",
+            "url": "http://localhost:3500/mcp"
+        }
+    },
+    "inputs": []
+}

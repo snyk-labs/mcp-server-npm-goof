@@ -1,0 +1,17 @@
+{
+    "mcpServers": {
+        "npm-and-node-tools": {
+            "type": "http",
+            "url": "http://localhost:3500/mcp",
+            "env": {
+                "API_KEY": "yo-yo-this-is-kinda-secret-ya?"
+            }
+        },
+        "GitHub": {
+            "url": "https://api.githubcopilot.com/mcp/",
+            "headers": {
+                "Authorization": "Bearer ghp_A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0uV1wX2yZ3aB4c"
+            }
+        }
+    }
+}
